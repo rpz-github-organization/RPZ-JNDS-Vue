@@ -1,30 +1,24 @@
-# jnds.web
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 # RPZ-JNDS-Vue
+
+## 项目启动 Project setup
+```
+# 依赖安装 Dependencies installation
+yarn install
+
+# 开发编译与热重载部署 Compiles and hot-reloads for development
+yarn run serve
+
+
+# 编译构建与压缩到生产级别 Compiles and minifies for production
+yarn run build
+
+
+# 运行测试 Run your tests
+yarn run test
+
+
+# 代码格式化 Lints and fixes files
+yarn run lint (--fix)
+```
+
+

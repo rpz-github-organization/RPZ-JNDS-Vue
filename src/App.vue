@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">报名处</router-link> |
+      <router-link to="/check">报名查询</router-link> |
+      <router-link to="/about">咨询联系</router-link>
+      <a-back-top />
     </div>
     <router-view/>
   </div>
@@ -20,9 +22,10 @@
   padding: 30px;
 }
 
-#nav a {
+#nav a, a:hover, a:link, a:visited {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {
