@@ -135,7 +135,7 @@
 
 <script>
 import Clipboard from 'clipboard';
-import projectinfojson from '@/assets/project-info.json';
+import projectinfojson from '../assets/project-info.json';
 
 export default {
   name: 'SigninForm',
