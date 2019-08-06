@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <div class="flex-container">
-      <img class="logo" alt="SICNU logo" width="100" src="../assets/sicnulogo.jpg">
-      <img class="logo" alt="JNDS logo" width="100" src="../assets/jklogo.png">
+    <div class="row-container">
+      <img class="logo" alt="SICNU logo"  src="../assets/sicnulogo.jpg">
+      <img class="logo" alt="JNDS logo" src="../assets/jklogo.png">
     </div>
     <Signin :SigninTitle="SigninTitle"/>
   </div>
@@ -32,12 +32,13 @@ export default {
 </script>
 
 <style scoped>
-  .flex-container {
-    display: flex;
-    justify-content: center;
+  .row-container {
+    display: block;
   }
 
   .logo {
+    display: inline-block;
     margin: 0 20px;
+    width: 28%;
   }
 </style>
