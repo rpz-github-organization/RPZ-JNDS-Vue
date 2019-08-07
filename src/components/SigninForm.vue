@@ -23,7 +23,7 @@
 
       <!-- 可输入查询的各项目的 Tab panel -->
       <a-tab-pane tab="📋按信息查找" key="props" forceRender>
-        <a-alert message=" 请注意：三个查询字段都是可选的" type="info" showIcon
+        <a-alert message=" 请注意：三个查询字段都是可选的" type="warning" showIcon
         style="margin-bottom: 15px; text-align: left; font-weight: bold;"/>
         <a-input addonBefore="姓名: " placeholder="请输入要查询的报名者姓名"
          style="margin-bottom: 10px;" v-model="check_name" />
@@ -51,8 +51,10 @@
     <!-- 报名表单卡片视图 -->
     <a-card hoverable v-show="form_show" style="margin-bottom: 20px;"
     v-for="(card, ckey) in form_cards" :key="ckey">
-      <a-card-meta title=" * 您的报名表单 * "
-      description="请仔细填写，单人参赛与组队参赛请分两次报名">
+      <a-card-meta title=" * 您的报名表单 * ">
+        <p class="form-card-description" slot="description">
+          请仔细填写，单人参赛与组队参赛请分两次报名
+        </p>
       </a-card-meta>
 
       <!-- 报名表单卡片 action栏 -->
@@ -78,13 +80,10 @@
         <!-- 报名项目组别 -->
         <a-row style="margin-bottom: 20px;">
           <label class="form-label" for="group-select">报名组别：</label>
-          <a-select id="group-select" size="default" style="width: 65%;" v-model="card.project">
-            <a-select-option
-              v-for="(item, pkey) in projectinfo"
-              :key="pkey"
-              :value="item.name"
-            >{{item.name}}</a-select-option>
-          </a-select>
+          <a-radio-group :options="projectOptions"
+          style="width:50%;margin:0;display:inline-flex;
+           flex-direction:column;"
+          v-model="card.project" />
         </a-row>
 
         <!-- 填写组员人数 -->
@@ -137,6 +136,14 @@
 import Clipboard from 'clipboard';
 import projectinfojson from '../assets/project-info.json';
 
+const projectOptionsArray = [
+  { label: '计算机综合素质竞赛', value: '计算机综合素质竞赛' },
+  { label: '微课与课件设计', value: '微课与课件设计' },
+  { label: '数字媒体设计', value: '数字媒体设计' },
+  { label: '平面艺术设计', value: '平面艺术设计' },
+  { label: '算法与AI应用', value: '算法与AI应用' },
+];
+
 export default {
   name: 'SigninForm',
   props: {
@@ -164,6 +171,7 @@ export default {
       // - 报名时：只给一张表单卡片，卡片内info_list 可以填写多人
       // - 查询时若出现一人多个报名记录： v-for 表单数组 渲染卡片
       projectinfo: projectinfojson,
+      projectOptions: projectOptionsArray,
       form_cards: [],
 
       // 提交后的反馈数据信息
@@ -222,7 +230,7 @@ export default {
     },
     // alert 中的 id号 复制成功的回调
     copyFallback() {
-      this.$message.success('复制成功，快去粘贴保存起来吧！', 2);
+      this.$message.success('复制成功，快去粘贴保存起来吧！');
     },
 
     // 查询方式 tab 变更回调
@@ -483,5 +491,10 @@ export default {
   width: 100%;
   padding: 10px;
   margin: 20px auto;
+}
+
+.form-card-description {
+  font-size: 11px;
+  color: rgba(0,0,0,.45);
 }
 </style>

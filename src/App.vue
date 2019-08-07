@@ -1,12 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">报名处</router-link> |
-      <router-link to="/check">报名查询</router-link> |
-      <router-link to="/about">咨询联系</router-link>
-      <a-back-top />
-    </div>
     <router-view/>
+    <a-back-top />
+    <div class="footer">
+      <div>
+        <a-icon type="edit"></a-icon>
+        <router-link to="/">报名处</router-link>
+      </div>
+      <div>
+        <a-icon type="search" />
+        <router-link to="/check">报名查询</router-link>
+      </div>
+      <div>
+        <a-icon type="edit"></a-icon>
+        <router-link to="/about">咨询联系</router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,19 +25,34 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  margin: 20px 0;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-}
 
-#nav a, a:hover, a:link, a:visited {
-  font-weight: bold;
+.footer {
+  display: flex;
+  position: fixed;
+  cursor: pointer;
+  padding: 10px 0;
+  left: 0;
+  bottom: 0;
   color: #2c3e50;
-  text-decoration: none;
+  box-sizing: border-box;
+  background:linear-gradient(white,#e8f5f9);
+  width: 100%;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.footer div{
+  flex: 1;
+  padding: 5px;
+  border-right: 1px solid lightgray;
+}
+.footer div a{
+  display: block;
+  cursor: pointer;
+  color:black;
+  font-weight: 900;
+}
+.on{
+  color: rgb(25, 137, 250);
 }
 </style>

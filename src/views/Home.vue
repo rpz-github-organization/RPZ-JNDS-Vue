@@ -1,9 +1,5 @@
 <template>
   <div class="home">
-    <div class="row-container">
-      <img class="logo" alt="SICNU logo"  src="../assets/sicnulogo.jpg">
-      <img class="logo" alt="JNDS logo" src="../assets/jklogo.png">
-    </div>
     <Signin :SigninTitle="SigninTitle"/>
   </div>
 </template>
@@ -24,8 +20,8 @@ export default {
   },
   computed: {
     SigninTitle() {
-      return `<h2 style="font-weight: bolder; margin: 0;">四川师范大学</h2>
-      第${this.No}届计算机技能大赛 · 报名处`;
+      return `<h3 style="font-weight: bolder; margin: 0;">四川师范大学</h3>
+      <h2>第${this.No}届计算机技能大赛</h2><h3>✍️报名处</h3>`;
     },
   },
 };
